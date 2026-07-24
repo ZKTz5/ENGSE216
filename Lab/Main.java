@@ -3,60 +3,49 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // สร้าง Object ของ Manager เพื่อจัดการข้อมูล
         PhoneBookManager manager = new PhoneBookManager();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("===== PhoneBook Command Line System =====");
+        System.out.println("> add [name] [surname] [phone]");
+        System.out.println("> delete [No.]");
+        System.out.println("> edit [No.] [name] [surname] [phone]");
+        System.out.println("> insert [No.] [A/B] [name] [surname] [phone]");
+        System.out.println("> sort");
+        System.out.println("> show");
+        System.out.println("> exit");
+        System.out.println("=========================================");
+
         while (true) {
             try {
-                System.out.println("\n===== PhoneBook Menu =====");
-                System.out.println("1. Add Contact");
-                System.out.println("2. Delete Contact");
-                System.out.println("3. Edit Contact");
-                System.out.println("4. Insert Contact");
-                System.out.println("5. Search Contact");
-                System.out.println("6. Sort Contacts");
-                System.out.println("7. Show All Contacts");
-                System.out.println("0. Exit");
-                System.out.print("Select Menu (0-7): ");
-                
-                int choice = Integer.parseInt(scanner.nextLine());
+                System.out.print("Command> ");
+                String input = scanner.nextLine().trim();
+                if (input.isEmpty()) continue;
 
-                switch (choice) {
-                    case 1:
-                        manager.addContact();
-                        break;
-                    case 2:
-                        manager.deleteContact();
-                        break;
-                    case 3:
-                        manager.editContact();
-                        break;
-                    case 4:
-                        manager.insertContact();
-                        break;
-                    case 5:
-                        manager.searchContact();
-                        break;
-                    case 6:
-                        manager.sortContact();
-                        break;
-                    case 7:
-                        manager.showAllContacts();
-                        break;
-                    case 0:
-                        System.out.println("Exit Program. Goodbye!");
-                        System.exit(0);
-                    default:
-                        System.out.println("Invalid Menu Number. Please input 0-7.");
+                String[] parts = input.split(" ");
+                String cmd = parts[0].toLowerCase();
+
+                if (cmd.equals("add")) {
+                    manager.addContact(parts);
+                } else if (cmd.equals("delete")) {
+                    manager.deleteContact(parts);
+                } else if (cmd.equals("edit")) {
+                    manager.editContact(parts);
+                } else if (cmd.equals("insert")) {
+                    manager.insertContact(parts);
+                } else if (cmd.equals("sort")) {
+                    manager.sortContact();
+                } else if (cmd.equals("show")) {
+                    manager.showAllContacts();
+                } else if (cmd.equals("exit")) {
+                    System.out.println("Exit Program.");
+                    break;
+                } else {
+                    System.out.println("Unknown Command!");
                 }
-            } catch (NumberFormatException e) {
-                // ป้องกันกรณีนักศึกษาทดสอบระบบแล้วกดปุ่ม Enter เปล่าๆ หรือพิมพ์ตัวอักษรใส่หน้าเมนูหลัก
-                System.out.println("Error: Please enter a valid number.");
             } catch (Exception e) {
-                System.out.println("An unexpected error occurred: " + e.getMessage());
+                System.out.println("Error processing command. Try again.");
             }
         }
-        
     }
 }

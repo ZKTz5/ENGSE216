@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Lab.Main",
+            "projectName": "engse216_e4ab9025"
+        },
+        {
+            "type": "java",
             "name": "UsedCollection",
             "request": "launch",
             "mainClass": "UsedCollection",
