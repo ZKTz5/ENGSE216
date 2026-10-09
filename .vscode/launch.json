@@ -8,6 +8,41 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "S2.Main",
+            "projectName": "ENGSE216_b91a93b7"
+        },
+        {
+            "type": "java",
+            "name": "SortingGraph",
+            "request": "launch",
+            "mainClass": "S2.SortingGraph",
+            "projectName": "ENGSE216_b91a93b7"
+        },
+        {
+            "type": "java",
+            "name": "GraphExample",
+            "request": "launch",
+            "mainClass": "S2.GraphExample",
+            "projectName": "ENGSE216_b91a93b7"
+        },
+        {
+            "type": "java",
+            "name": "SortingAlgorithmComparison",
+            "request": "launch",
+            "mainClass": "S2.SortingAlgorithmComparison",
+            "projectName": "ENGSE216_b91a93b7"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "ENGSE216_b91a93b7"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "Lab.Main",
             "projectName": "engse216_e4ab9025"
         },
